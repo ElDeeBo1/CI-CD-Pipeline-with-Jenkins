@@ -7,8 +7,8 @@ pipeline{
         maven 'maven-354'
     }
     environment {
-        dockerUsername = Credentials("docker-username")
-        dockerPassword = Credentials("docker-password")
+        dockerUsername = credentials("docker-username")
+        dockerPassword = credentials("docker-password")
     }
     stages{
         stage("Build frist app by java"){
