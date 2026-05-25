@@ -9,11 +9,12 @@ pipeline{
     environment {
         dockerUsername = credentials("docker-username")
         dockerPassword = credentials("docker-password")
+        MAVEN_OPTS = "-Dhttps.protocols=TLSv1.2,TLSv1.3"
     }
     stages{
         stage("Build frist app by java"){
             steps{
-                sh "mvn package install -DskipTests"
+                sh "mvn package install -DskipTests -U"
             }
         }
         stage("test frist app by java"){
