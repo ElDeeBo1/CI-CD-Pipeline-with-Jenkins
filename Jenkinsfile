@@ -26,16 +26,17 @@ pipeline{
                 archiveArtifacts artifacts: '**/*jar', followSymlinks: false
             }
         }
-        stage(" docker login"){
-            steps{
-                sh "docker login -u ${dockerUsername} -p ${dockerPassword}"
-            }
-        }
         stage("build docker image for app by java"){
             steps{
                 sh "docker build -t frist-app:v1 ."
             }
         }
+        stage(" docker login"){
+            steps{
+                sh "docker login -u ${dockerUsername} -p ${dockerPassword}"
+            }
+        }
+        
         // stage("build push image for app by java"){
         //     steps{
         //         sh "docker push frist-app:v1"
