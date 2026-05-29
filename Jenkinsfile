@@ -17,7 +17,7 @@ pipeline{
             steps{
                    script{
                    def obj = new edu.iti.mavenclass()
-                   obj.build(package install -DskipTests)
+                   obj.install_mvn(package install -DskipTests)
 
                 }
             }
@@ -26,7 +26,7 @@ pipeline{
             steps{
                 script{
                    def obj = new edu.iti.mavenclass()
-                   obj.test
+                   obj.test_mvn
 
                 }
             }
