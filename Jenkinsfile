@@ -1,3 +1,5 @@
+@Library('cicdlab-java') _
+
 pipeline{
     agent {
         label 'ahmed-agent-01'
@@ -13,12 +15,20 @@ pipeline{
     stages{
         stage("Build frist app by java"){
             steps{
-                sh "mvn package install -DskipTests"
+                   script{
+                   def obj = new edu.iti.mavenclass()
+                   obj.build(package install -DskipTests)
+
+                }
             }
         }
         stage("test frist app by java"){
             steps{
-                sh "mvn test"
+                script{
+                   def obj = new edu.iti.mavenclass()
+                   obj.test
+
+                }
             }
         }
         stage("Archive frist app by java"){
@@ -28,20 +38,32 @@ pipeline{
         }
         stage("build docker image for app by java"){
             steps{
-                sh "docker build -t ahmediti/ahmed-java:${imagetag} ."
+                  script{
+                   def obj = new edu.iti.dockerclass()
+                   obj.build("ahmediti/ahmed-java","v${Build_Number}")
+
+                }
             }
         }
         stage(" docker login"){
             steps{
-                sh "docker login -u ${dockerUsername} -p ${dockerPassword}"
+                  script{
+                   def obj = new edu.iti.dockerclass()
+                   obj.login("${dockerUsername}","${dockerPassword}")
+
+                }
             }
         }
         
-        // stage("build push image for app by java"){
-        //     steps{
-        //         sh "docker push ahmediti/ahmed-java:${imagetag}"
-        //     }
-        // }
+        stage("build push image for app by java"){
+            steps{
+                script{
+                   def obj = new edu.iti.dockerclass()
+                   obj.push("ahmediti/ahmed-java","v${Build_Number}")
+
+                }
+            }
+        }
         
     }
 
