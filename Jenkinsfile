@@ -26,7 +26,7 @@ pipeline{
             steps{
                 script{
                    def obj = new edu.iti.mavenclass()
-                   obj.test_mvn
+                   obj.test_mvn()
 
                 }
             }
