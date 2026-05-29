@@ -28,7 +28,7 @@ pipeline{
         }
         stage("build docker image for app by java"){
             steps{
-                sh "docker build -t frist-app:v1 ."
+                sh "docker build -t ahmediti/ahmed-java:${BuiBUILD_NUMBER} ."
             }
         }
         stage(" docker login"){
@@ -37,11 +37,11 @@ pipeline{
             }
         }
         
-        // stage("build push image for app by java"){
-        //     steps{
-        //         sh "docker push frist-app:v1"
-        //     }
-        // }
+        stage("build push image for app by java"){
+            steps{
+                sh "docker push ahmediti/ahmed-java:${BUILD_NUMBER}"
+            }
+        }
         
     }
 
