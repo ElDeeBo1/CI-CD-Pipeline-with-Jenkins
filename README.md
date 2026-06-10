@@ -1,27 +1,25 @@
-# cicd-lab
+# CI/CD Pipeline for Java Application using GitHub Actions
 
-# Java App - Training and Education for DevOps Pipeline
+Automated a complete CI/CD workflow using GitHub Actions to build, test, containerize, and publish a Java application to Docker Hub.
 
-Welcome to the **Java App** repository! This project is designed for training and educational purposes, specifically aimed at providing a hands-on experience for DevOps engineers to create and manage pipelines. In this repository, you will find a containerized Java application that serves as a starting point for learning DevOps practices.
+## Tools & Technologies
 
-## Table of Contents
+* GitHub Actions
+* Java 11
+* Maven
+* Docker
+* Docker Hub
+* Git
 
-- [Project Overview](#project-overview)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Creating a Pipeline](#creating-a-pipeline)
-- [Contributing](#contributing)
-- [License](#license)
+## Pipeline Stages
 
-## Project Overview
+1. Checkout source code
+2. Set up Java environment
+3. Build application with Maven
+4. Build Docker image
+5. Authenticate with Docker Hub
+6. Push versioned Docker image to Docker Hub
 
-This Java application is a simple example to help DevOps engineers understand how to work with Java apps in a containerized environment. It can be used as a learning tool for creating and managing CI/CD pipelines and deploying Java applications to various environments.
+## Outcome
 
-## Installation
-
-To get started, follow these steps:
-
-1. Clone the repository:
-```bash
-git clone https://github.com/Hassan-Eid-Hassan/java.git
-cd your-repo
+Automated software delivery process, ensuring consistent builds and faster deployments.
